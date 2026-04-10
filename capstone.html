@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Explorer</title>
+    <link rel="stylesheet" href="capston.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Background Decorative Elements -->
+    <div class="bg-decoration">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+        <div class="floating-shape shape-4"></div>
+        <div class="floating-shape shape-5"></div>
+    </div>
+
+    <header class="navbar">
+        <div class="logo">
+            <i class="fas fa-film"></i>
+            Movie Explorer
+        </div>
+
+        <ul class="menu">
+            <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#" id="trending"><i class="fas fa-fire"></i> Trending</a></li>
+            <li><a href="#" id="browse"><i class="fas fa-compass"></i> Browse</a></li>
+            <li><a href="watchlist.html"><i class="fas fa-heart"></i> Favorites</a></li>
+        </ul>
+    </header>
+
+    
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-star"></i>
+                <span>Premium Movie Experience</span>
+            </div>
+            <h1>
+                Discover <span class="highlight">Movies</span>
+            </h1>
+            <p>Find your favorite movies, explore the latest trends, and save what you love in your personal collection.</p>
+
+            <div class="search-box">
+                <div class="search-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="Search for movies, actors, directors...">
+                </div>
+                <button id="searchBtn">
+                    <i class="fas fa-search"></i>
+                    Search
+                </button>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">10M+</span>
+                    <span class="stat-label">Movies</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">500K+</span>
+                    <span class="stat-label">Users</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">4.8★</span>
+                    <span class="stat-label">Rating</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero decorative elements -->
+        <div class="hero-decoration">
+            <div class="decorative-circle circle-1"></div>
+            <div class="decorative-circle circle-2"></div>
+            <div class="decorative-circle circle-3"></div>
+        </div>
+    </section>
+
+    
+    <section class="categories">
+        <div class="categories-header">
+            <h2>Explore Categories</h2>
+            <p>Discover movies by popularity and release status</p>
+        </div>
+        <div class="categories-grid">
+            <button class="cat-btn" id="popular">
+                <i class="fas fa-chart-line"></i>
+                <span>Popular</span>
+            </button>
+            <button class="cat-btn" id="topRated">
+                <i class="fas fa-star"></i>
+                <span>Top Rated</span>
+            </button>
+            <button class="cat-btn" id="nowPlaying">
+                <i class="fas fa-play-circle"></i>
+                <span>Now Playing</span>
+            </button>
+        </div>
+    </section>
+
+    <main>
+        <div class="section-divider">
+            <div class="divider-line"></div>
+            <div class="divider-icon">
+                <i class="fas fa-film"></i>
+            </div>
+            <div class="divider-line"></div>
+        </div>
+
+        <div class="movies-section">
+            <div class="movies-header">
+                <h2 id="sectionTitle">Popular Movies</h2>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="view-btn" data-view="list">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="moviesContainer" class="movies-grid">
+                <!-- Loading skeleton -->
+                <div class="loading-skeleton">
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                </div>
+                <!-- Movie cards will come here -->
+            </div>
+
+            <div class="load-more-container">
+                <button id="loadMoreBtn" class="load-more-btn">
+                    <i class="fas fa-plus"></i>
+                    Load More Movies
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- MOVIE CARD TEMPLATE -->
+    <template id="movieTemplate">
+        <div class="movie-card">
+            <div class="movie-poster">
+                <img class="movie-img" src="" alt="Movie Poster">
+                <div class="movie-overlay">
+                    <div class="overlay-content">
+                        <button class="quick-view-btn">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <div class="movie-genres">
+                            <span class="genre-tag">Action</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="movie-rating-badge">
+                    <i class="fas fa-star"></i>
+                    <span class="rating-score"></span>
+                </div>
+            </div>
+
+            <div class="movie-details">
+                <h3 class="movie-title"></h3>
+                <div class="movie-meta">
+                    <span class="movie-date">
+                        <i class="fas fa-calendar"></i>
+                    </span>
+                    <span class="movie-duration">
+                        <i class="fas fa-clock"></i>
+                        120 min
+                    </span>
+                </div>
+                <p class="movie-overview"></p>
+                <div class="movie-actions">
+                    <button class="watchlist-btn">
+                        <i class="fas fa-heart"></i>
+                        Favorite
+                    </button>
+                    <button class="details-btn">
+                        <i class="fas fa-info-circle"></i>
+                        Details
+                    </button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <i class="fas fa-film"></i>
+                    Movie Explorer
+                </div>
+                <p>Your ultimate destination for discovering and exploring movies from around the world.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">API</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Comedy</a></li>
+                    <li><a href="#">Drama</a></li>
+                    <li><a href="#">Horror</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="#">Parental Guidance</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026  Movie Explorer. All rights reserved. | Made with <i class="fas fa-heart text-red"></i> for movie lovers</p>
+        </div>
+    </footer>
+
+    <script src="capstone.js"></script>
+</body>
+</html>
