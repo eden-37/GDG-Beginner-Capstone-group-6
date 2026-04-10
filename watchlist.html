@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorites - Movie Explorer</title>
+    <link rel="stylesheet" href="capston.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Background Decorative Elements -->
+    <div class="bg-decoration">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+    </div>
+
+    <header class="navbar">
+        <div class="logo">
+            <i class="fas fa-film"></i>
+            Movie Explorer
+        </div>
+
+        <ul class="menu">
+            <li><a href="capstone.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#" id="trending"><i class="fas fa-fire"></i> Trending</a></li>
+            <li><a href="#" id="browse"><i class="fas fa-compass"></i> Browse</a></li>
+            <li><a href="watchlist.html" class="active"><i class="fas fa-heart"></i> Favorites</a></li>
+        </ul>
+    </header>
+
+    <main>
+        <div class="section-divider">
+            <div class="divider-line"></div>
+            <div class="divider-icon">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="divider-line"></div>
+        </div>
+
+        <div class="watchlist-section">
+            <div class="watchlist-header">
+                <h1><i class="fas fa-heart"></i> My Favorite Movies</h1>
+                <p>Your personal collection of beloved films</p>
+            </div>
+
+            <div class="watchlist-stats">
+                <div class="stat-card">
+                    <i class="fas fa-film"></i>
+                    <div class="stat-info">
+                        <span class="stat-number" id="totalMovies">0</span>
+                        <span class="stat-label">Total Movies</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-clock"></i>
+                    <div class="stat-info">
+                        <span class="stat-number" id="totalWatchTime">0</span>
+                        <span class="stat-label">Watch Time (hrs)</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-star"></i>
+                    <div class="stat-info">
+                        <span class="stat-number" id="avgRating">0.0</span>
+                        <span class="stat-label">Avg Rating</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="watchlistContainer" class="watchlist-grid">
+                <!-- Watchlist movies will be loaded here -->
+            </div>
+
+            <div class="empty-watchlist" id="emptyWatchlist">
+                <i class="fas fa-heart-broken"></i>
+                <h3>Your watchlist is empty</h3>
+                <p>Start exploring movies and add them to your favorites!</p>
+                <a href="capstone.html" class="explore-btn">
+                    <i class="fas fa-search"></i>
+                    Explore Movies
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <i class="fas fa-film"></i>
+                    Movie Explorer
+                </div>
+                <p>Your ultimate destination for discovering and exploring movies from around the world.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="capstone.html">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>My Account</h4>
+                <ul>
+                    <li><a href="watchlist.html">My Favorites</a></li>
+                    <li><a href="#">Watch History</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="#">Parental Guidance</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Movie Explorer. All rights reserved. | Made with <i class="fas fa-heart text-red"></i> for movie lovers</p>
+        </div>
+    </footer>
+
+    <script src="watchlist.js"></script>
+</body>
+</html>
